@@ -13,6 +13,8 @@ RUN apt-get install -y autossh
 # Empty mysql data dir, so that our init script can start from a clean slate
 RUN rm -rf /var/lib/mysql/*
 
+ADD scripts/* /usr/bin/
+
 RUN init_db
 
 # Define mountable directories.
@@ -20,8 +22,6 @@ VOLUME ["/etc/mysql", "/var/lib/mysql", "/backups"]
 
 # Add a default, tweaked mysql config. In production should be replaced by a mounted volume, with your own config managed by your orchestration solution (Chef, etc.)
 ADD mysql/my.cnf /etc/mysql/my.cnf
-
-ADD scripts/* /usr/bin/
 
 # Define default command.
 CMD ["mysqld_safe"]
