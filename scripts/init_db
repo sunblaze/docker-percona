@@ -36,7 +36,3 @@ else
   # Shutdown the server so that we can start it again so that docker can monitor it
   mysqladmin shutdown
 fi
-
-echo "Launching mysqld_safe..."
-echo "James custom"
-exec mysqld_safe
