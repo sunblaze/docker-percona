@@ -38,4 +38,5 @@ else
 fi
 
 echo "Launching mysqld_safe..."
+echo "James custom"
 exec mysqld_safe
